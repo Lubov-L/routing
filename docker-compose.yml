@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  nginx-routing:
+    container_name: nginx-routing
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+      - "90:80"
+    volumes:
+      - .:/var/www/
+      # конфигурация nginx
+      - ./.docker/config/nginx/:/etc/nginx/conf.d/
+      # ssl
+      # - ./.docker/config/nginx/ssl/:/etc/nginx/ssl/
+      # логи
+      - ./.docker/logs/nginx:/var/log/nginx/
+    networks:
+      - web-network-routing
+
+  php-routing:
+    build:
+      context: ./.docker/
+    container_name: php-routing
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - .:/var/www/
+      - ./.docker/config/php/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    networks:
+      - web-network-routing
+
+networks:
+  web-network-routing:
+    driver: bridge
