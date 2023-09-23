@@ -1,0 +1,14 @@
+{
+    "name": "routing/app",
+    "autoload": {
+        "psr-4": {
+            "Routing\\App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Anfisa"
+        }
+    ],
+    "require": {}
+}
