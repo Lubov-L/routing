@@ -12,3 +12,4 @@ nginx-bash:
 	docker compose exec nginx-routing bash
 nginx-logs:
 	docker compose logs nginx-routing
+

@@ -4,7 +4,7 @@ namespace Routing\App\RMVC\Route;
 
 class RouteConfiguration
 {
-    private string $route;
+    public string $route;
     private string $controller;
     private string $action;
     private string $name;

@@ -14,4 +14,12 @@ class Route
 
         return $routeConfiguration;
     }
+
+    /**
+     * @return array
+     */
+    public static function getRoutesGet(): array
+    {
+        return self::$routesGet;
+    }
 }

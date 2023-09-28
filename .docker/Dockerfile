@@ -8,7 +8,8 @@ COPY ./config/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 # Домашний каталог контейнера
 WORKDIR /var/www
 
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+# /usr/local/etc/php
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
 # Обновление системы
 RUN apt-get update && apt-get upgrade -y \
