@@ -1,6 +1,6 @@
 <?php
 
-namespace Routing\App\Controller;
+namespace Routing\App\Http\Controllers;
 
 class Controller
 {
