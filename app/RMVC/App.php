@@ -9,12 +9,13 @@ class App
 {
     public static function run(): void
     {
+        $requestMethod = ucfirst(strtolower($_SERVER['REQUEST_METHOD']));
 
-        foreach (Route::getRoutesGet() as $routeConfiguration) {
+        $methodName = 'getRoutes'. $requestMethod;
 
+        foreach (Route::$methodName() as $routeConfiguration) {
             $routeDispatcher = new RouteDispatcher($routeConfiguration);
             $routeDispatcher->process();
-
         }
     }
 }

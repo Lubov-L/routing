@@ -2,15 +2,24 @@
 
 namespace Routing\App\Http\Controllers;
 
+use Routing\App\RMVC\Route\Route;
+use Routing\App\RMVC\View\View;
+
 class PostController extends Controller
 {
-    public function index(): int
+    public function index(): string
     {
-        return 11111111;
+        return View::view('post.index');
     }
 
-    public function show()
+    public function show($post): string
     {
-        return 222222;
+        return View::view('post.show', compact('post'));
+    }
+
+    public function load(): void
+    {
+        $_SESSION['message'] = $_POST['title'];
+        Route::redirect('/posts');
     }
 }
