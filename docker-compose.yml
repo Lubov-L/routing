@@ -1,4 +1,4 @@
-version: '3'
+version: '3.5'
 
 services:
   nginx-routing:
@@ -9,11 +9,7 @@ services:
       - "90:80"
     volumes:
       - .:/var/www/
-      # конфигурация nginx
       - ./.docker/config/nginx/:/etc/nginx/conf.d/
-      # ssl
-      # - ./.docker/config/nginx/ssl/:/etc/nginx/ssl/
-      # логи
       - ./.docker/logs/nginx:/var/log/nginx/
     networks:
       - web-network-routing
