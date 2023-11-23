@@ -4,7 +4,6 @@ namespace Routing\App\RMVC\Route;
 
 class Route
 {
-
     private static array $routesGet = [];
     private static array $routesPost = [];
 

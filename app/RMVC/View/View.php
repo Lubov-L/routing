@@ -4,9 +4,8 @@ namespace Routing\App\RMVC\View;
 
 class View
 {
-    public static $path;
+    public static string $path;
     public static ?array $data;
-
 
     public static function view(string $str, array $data = []): string
     {

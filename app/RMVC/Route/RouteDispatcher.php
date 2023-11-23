@@ -2,9 +2,10 @@
 
 namespace Routing\App\RMVC\Route;
 
+use JetBrains\PhpStorm\NoReturn;
+
 class RouteDispatcher
 {
-
     private string $requestUri = '/';
 
     private array $paramMap = [];
@@ -25,13 +26,13 @@ class RouteDispatcher
 
     public function process(): void
     {
-        // Если есть строка запроса, необходимо почитить и сохранить ее.
+        // Если есть строка запроса, необходимо почистить и сохранить ее.
         $this->saveRequestUri();
 
         // Строка роута разбивается на массив и сохраняется в новый массив (позиция, параметр и название).
         $this->setParamMap();
 
-        // Строка запроса разбиватся на массив и проверяется на наличие позиции, как у позиции параметра.
+        // Строка запроса разбивается на массив и проверяется на наличие позиции, как у позиции параметра.
         // Если есть, строка приводится в регулярное выражение.
         $this->makeRegexRequest();
 
@@ -93,7 +94,7 @@ class RouteDispatcher
         }
     }
 
-    private function render(): void
+    #[NoReturn] private function render(): void
     {
         $cont = $this->routeConfiguration->controller;
         $action = $this->routeConfiguration->action;
