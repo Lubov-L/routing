@@ -1,1 +1,1 @@
-# Routing как в Laravel
+# Routing по аналогии с Laravel
